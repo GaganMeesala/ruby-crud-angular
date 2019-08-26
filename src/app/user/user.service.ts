@@ -17,6 +17,13 @@ export class UserService {
     httpHeaders.append('Accept', 'application/json');
     return this.http.get(APIURL + 'api/v1/users',{headers: httpHeaders});
   }
+
+  loginUser(payload) {
+    const httpHeaders = new HttpHeaders();
+    httpHeaders.append('Content-Type', 'application/json');
+    httpHeaders.append('Accept', 'application/json');
+    return this.http.post(APIURL + 'api/v1/auth/login', payload,{headers: httpHeaders});
+  }
  
   createUser(payload) {
     const httpHeaders = new HttpHeaders();
